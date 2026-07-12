@@ -26,7 +26,7 @@ plus `examples/`. To install into a Claude Code project:
 
 ```sh
 # from your project root
-git clone https://github.com/<owner>/ruby-markups /tmp/ruby-markups
+git clone https://github.com/hanzipro/ruby-markups /tmp/ruby-markups
 cp -R /tmp/ruby-markups/zhuyin-ruby-markup .claude/skills/
 ```
 
