@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zhuyin ruby — punctuation & kinsoku (Rule 2)</title>
+<style>
+  /* Narrow column so lines wrap — watch that punctuation never lands at a line
+     head/tail. Kinsoku fires only because ruby and punctuation are adjacent in
+     the source (no whitespace between them). */
+  body { font: 1.5rem/2.6 "Hiragino Mincho ProN", "Yu Mincho", serif; margin: 3rem auto; max-width: 14em; padding-inline: 1rem; }
+  ruby.zhuyin { ruby-position: inter-character; -webkit-ruby-position: inter-character; }
+  rt { font-size: 0.5em; }
+  h1 { font-size: 1rem; color: #888; font-weight: normal; max-width: none; }
+</style>
+</head>
+<body>
+<h1>Rule 2 — punctuation flush on both sides, no whitespace</h1>
+
+<!-- Opening bracket flush against opening <ruby>; closing punctuation flush against </ruby>.
+     The whole run is one source line so no stray text node breaks adjacency. -->
+<p>「<ruby class="zhuyin">學<rt>ㄒㄩㄝˊ</rt></ruby><ruby class="zhuyin">而<rt>ㄦˊ</rt></ruby><ruby class="zhuyin">時<rt>ㄕˊ</rt></ruby><ruby class="zhuyin">習<rt>ㄒㄧˊ</rt></ruby><ruby class="zhuyin">之<rt>ㄓ</rt></ruby>，<ruby class="zhuyin">不<rt>ㄅㄨˊ</rt></ruby><ruby class="zhuyin">亦<rt>ㄧˋ</rt></ruby><ruby class="zhuyin">說<rt>ㄩㄝˋ</rt></ruby><ruby class="zhuyin">乎<rt>ㄏㄨ</rt></ruby>？」</p>
+</body>
+</html>

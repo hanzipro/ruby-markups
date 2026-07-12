@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zhuyin ruby — basic (Rule 1)</title>
+<style>
+  /* Illustrative only. Native inter-character positioning is honoured by Safari;
+     other engines need the Han.css inter-character CSS fallback + Zhuyin webfont
+     for correct 字旁直書 placement. See https://css.hanzi.pro */
+  body { font: 1.5rem/2.4 "Hiragino Mincho ProN", "Yu Mincho", serif; margin: 3rem auto; max-width: 30em; padding-inline: 1rem; }
+  ruby.zhuyin { ruby-position: inter-character; -webkit-ruby-position: inter-character; }
+  rt { font-size: 0.5em; }
+  h1 { font-size: 1rem; color: #888; font-weight: normal; }
+</style>
+</head>
+<body>
+<h1>Rule 1 — one base character per <code>&lt;ruby class="zhuyin"&gt;</code></h1>
+
+<!-- Each CJK char gets its own ruby; a multi-char word is adjacent rubies, no separator. -->
+<p><ruby class="zhuyin">漢<rt>ㄏㄢˋ</rt></ruby><ruby class="zhuyin">字<rt>ㄗˋ</rt></ruby><ruby class="zhuyin">文<rt>ㄨㄣˊ</rt></ruby><ruby class="zhuyin">化<rt>ㄏㄨㄚˋ</rt></ruby><ruby class="zhuyin">源<rt>ㄩㄢˊ</rt></ruby><ruby class="zhuyin">遠<rt>ㄩㄢˇ</rt></ruby><ruby class="zhuyin">流<rt>ㄌㄧㄡˊ</rt></ruby><ruby class="zhuyin">長<rt>ㄔㄤˊ</rt></ruby></p>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zhuyin ruby — vertical writing-mode (Rule 1 relaxed)</title>
+<style>
+  /* In pure vertical writing-mode the zhuyin column sits naturally beside the
+     text column, so no inter-character emulation is needed — a multi-base ruby
+     is layout-correct here (Rule 1's relaxation). One-base-per-ruby still works
+     and stays portable, so it is shown first. */
+  body { font: 1.6rem/1 "Hiragino Mincho ProN", "Yu Mincho", serif; margin: 3rem auto; padding: 1rem; }
+  .vtext { writing-mode: vertical-rl; block-size: 16em; margin-inline: auto; }
+  rt { font-size: 0.5em; }
+  h1 { writing-mode: horizontal-tb; font-size: 1rem; color: #888; font-weight: normal; }
+</style>
+</head>
+<body>
+<h1>Rule 1 relaxed — pure vertical writing-mode</h1>
+
+<p class="vtext">
+<!-- portable one-base-per-ruby form -->
+「<ruby class="zhuyin">天<rt>ㄊㄧㄢ</rt></ruby><ruby class="zhuyin">地<rt>ㄉㄧˋ</rt></ruby><ruby class="zhuyin">玄<rt>ㄒㄩㄢˊ</rt></ruby><ruby class="zhuyin">黃<rt>ㄏㄨㄤˊ</rt></ruby>，<ruby class="zhuyin">宇<rt>ㄩˇ</rt></ruby><ruby class="zhuyin">宙<rt>ㄓㄡˋ</rt></ruby><ruby class="zhuyin">洪<rt>ㄏㄨㄥˊ</rt></ruby><ruby class="zhuyin">荒<rt>ㄏㄨㄤ</rt></ruby>。」
+</p>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zhuyin ruby — dual annotation (Rule 3)</title>
+<style>
+  body { font: 1.6rem/3 "Hiragino Mincho ProN", "Yu Mincho", serif; margin: 3rem auto; max-width: 30em; padding-inline: 1rem; }
+  /* inner: zhuyin beside each char; outer: pinyin/gloss above the word */
+  ruby.zhuyin { ruby-position: inter-character; -webkit-ruby-position: inter-character; }
+  rt { font-size: 0.5em; }
+  h1 { font-size: 1rem; color: #888; font-weight: normal; }
+</style>
+</head>
+<body>
+<h1>Rule 3 — nested <code>&lt;ruby&gt;</code>: per-char zhuyin + word-level pinyin / gloss</h1>
+
+<!-- Outer ruby carries NO class; only the inner per-char rubies are class="zhuyin".
+     Outer <rt> is free-form and spans the whole word. -->
+<p>
+「<ruby><ruby class="zhuyin">漢<rt>ㄏㄢˋ</rt></ruby><ruby class="zhuyin">字<rt>ㄗˋ</rt></ruby><rt>hànzì</rt></ruby>」<ruby><ruby class="zhuyin">文<rt>ㄨㄣˊ</rt></ruby><ruby class="zhuyin">化<rt>ㄏㄨㄚˋ</rt></ruby><rt>culture</rt></ruby>
+</p>
+</body>
+</html>
