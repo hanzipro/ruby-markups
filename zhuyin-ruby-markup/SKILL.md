@@ -1,6 +1,7 @@
 ---
 name: zhuyin-ruby-markup
-description: Authoritative authoring rules for Zhuyin (注音, Mandarin Phonetic Symbols, MPS) ruby markup, intended for any HTML / Markdown / JSX / Svelte / docs / test fixture / LLM output that contains a Zhuyin-annotated CJK passage. Use whenever writing, reviewing, transforming, or generating content with `<ruby class="zhuyin">` or its alias `class="mps">`. Triggers include: any token like `class="zhuyin"`, `class="mps"`, `<rt>ㄅㄆㄇ`, "注音 ruby", "Zhuyin ruby", "字旁直書", "聲調定位", or any request to add zhuyin/MPS to Chinese text. Apply even when the request only says "add zhuyin to X" — the strict rules below override convenience.
+description: >-
+  Authoritative authoring rules for Zhuyin (注音, Mandarin Phonetic Symbols, MPS) ruby markup, intended for any HTML / Markdown / JSX / Svelte / docs / test fixture / LLM output that contains a Zhuyin-annotated CJK passage. Use whenever writing, reviewing, transforming, or generating content with `ruby class="zhuyin"` or its alias `class="mps"`. Triggers include: any token like `class="zhuyin"`, `class="mps"`, an `rt` containing ㄅㄆㄇ, "注音 ruby", "Zhuyin ruby", "字旁直書", "聲調定位", or any request to add zhuyin/MPS to Chinese text. Apply even when the request only says "add zhuyin to X" — the strict rules below override convenience.
 ---
 
 # Zhuyin Ruby Markup Rules
