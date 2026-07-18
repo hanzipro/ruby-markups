@@ -134,6 +134,14 @@ Inside `<rt>`, the zhuyin string follows the standard Taiwanese textbook order:
 
 Use the standard Unicode code points (U+02CA ˊ, U+02C7 ˇ, U+02CB ˋ, U+02D9 ˙). Do not substitute combining marks at the source layer — a properly-built Zhuyin font's GSUB handles the spacing→combining swap for vertical / inter-character contexts.
 
+**Reading standard — author-led, with a default.** Which readings to use, and how tone sandhi is marked, are the author's decisions (settled up front via Rule 8 step 0). When the author specifies nothing, the default is **Taiwan MOE dictionary readings with citation-tone marking**（教育部《重編國語辭典修訂本》／《國語一字多音審訂表》）:
+
+- 一 and 不 are marked with their **citation tone**（本調）, never the sandhi form: 不亦說乎 → 不 is ㄅㄨˋ, not ㄅㄨˊ. (The MOE dictionary marks ㄅㄨˋ ㄧˋ ㄌㄜˋ ㄏㄨ even for the set idiom 不亦樂乎.)
+- Third-tone sandhi is likewise never marked — adjacent third tones both keep ˇ.
+- 陰平 (first tone) carries no tone mark; 輕聲 ˙ is prefixed as above.
+
+Marking actual sandhi tones (e.g. for pronunciation-teaching material) is a legitimate author-specified override, not the default.
+
 ---
 
 ## Rule 6 — `<rtc>` / `<rb>` are not used
@@ -175,6 +183,8 @@ The cleanest Zhuyin `<ruby>` contains only:
 
 ## Rule 8 — Polyphone (多音字) handling for LLM-generated annotations
 
+**Step 0 — settle the reading standard before annotating anything.** Which language / regional standard governs the readings — Taiwan MOE 審訂音, mainland 普通話, Singapore / Malaysia Mandarin, a topolect standard, Japanese / Korean / Vietnamese readings… — and how tone sandhi is marked are the **author's** decisions: regional standard first, the author's explicit preference above that. Ask once, up front, rather than guessing per-occurrence. If the author specifies nothing, default to Taiwan MOE readings with citation-tone marking (Rule 5).
+
 When an LLM is adding zhuyin (or pinyin, or any phonetic annotation) to CJK text, **stop and ask the operator** whenever a character has multiple legitimate readings in the target language and context does not unambiguously determine which to use. This applies to Mandarin (Standard Chinese / 國語 / 普通話), Hokkien (閩南語), Hakka (客語), Wu (吳語), Cantonese (粵語), Japanese, Korean, and any other CJK-reading language the annotation targets.
 
 Examples:
@@ -190,8 +200,6 @@ Examples:
 2. For each ambiguous character, **list it explicitly with the candidate readings and a brief note on which reading fits which sense / dialect / register**.
 3. Wait for the operator's choice before emitting the final annotated markup. Do not silently pick a reading — a wrong choice in zhuyin is invisible to readers who trust the markup, and very expensive to discover later.
 
-If the operator wants a default, ask up-front (e.g. "default to Taiwan Mandarin standard readings unless otherwise specified") rather than guessing per-occurrence.
-
 ---
 
 ## Authoring checklist
@@ -206,3 +214,4 @@ Before saving any file that touches Zhuyin ruby:
 6. Tone marks use canonical Unicode points and canonical position (end / start for 輕聲).
 7. No `<rtc>` / `<rb>`.
 8. Polyphone characters were flagged to the operator before emission, not silently resolved.
+9. The reading standard was settled up front (author-specified, or the Taiwan MOE citation-tone default) and every tone mark follows it — 一 / 不 in citation tone unless the author overrode.
