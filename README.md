@@ -52,7 +52,7 @@ below.)
 
 ## Reference implementation
 
-These rules are extracted from **[Han.css](https://css.hanzi.pro)**, which
+These rules are extracted from **[Han.css](https://hanzi.pro)**, which
 ships the Zhuyin webfont, the inter-character CSS fallback, and the
 `transpileRuby` down-leveler referenced in the spec. Han.css is the canonical
 consumer, but every rule here is engine-agnostic — nothing requires Han.css
