@@ -6,11 +6,11 @@ description: >-
 
 # Zhuyin Ruby Markup Rules
 
-These rules describe how to author **Zhuyin (注音 / MPS)** ruby markup so that the browser's **native** `<ruby>` engine — together with a Zhuyin OpenType web font that GPOS-positions tone marks — renders correct line-breaking, kinsoku (標點避頭尾), and inter-character字旁直書 layout.
+These rules describe how to author **Zhuyin (注音 / MPS)** ruby markup so that the browser's **native** `<ruby>` engine — together with a Zhuyin OpenType web font that GPOS-positions tone marks — renders correct line-breaking, kinsoku (標點避頭尾), and inter-character 字旁直書 layout.
 
 The rules apply to **all** hand-authored or AI-generated source: prose, demos, test fixtures, JSDoc snippets, playground HTML, anything.
 
-> **Reference implementation.** These rules are extracted from [Han.css](https://css.hanzi.pro), which ships the Zhuyin web font, the inter-character CSS fallback, and the legacy-conversion helper referenced below. Han.css is the canonical consumer, but the markup rules here are engine-agnostic — nothing on this page requires Han.css specifically. See [`examples/`](./examples/) for openable demonstrations.
+> **Reference implementation.** These rules are extracted from [Han.css](https://hanzi.pro), which ships the Zhuyin web font, the inter-character CSS fallback, and the legacy-conversion helper referenced below. Han.css is the canonical consumer, but the markup rules here are engine-agnostic — nothing on this page requires Han.css specifically. See [`examples/`](./examples/) for openable demonstrations.
 
 **Scope.** This skill governs **only** `<ruby class="zhuyin">` and `<ruby class="mps">`. Other ruby uses — Hanyu Pinyin, Latin romanization, English glosses, Japanese furigana, classical 旁註 — are *not* inter-character layouts and are *not* constrained by these rules. They may use whatever HTML5-conforming pattern fits.
 
