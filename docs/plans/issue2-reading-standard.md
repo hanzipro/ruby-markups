@@ -1,6 +1,6 @@
 # Plan — issue #2「明確讀音標準」→ 作者主導，預設臺灣教育部
 
-Status: **awaiting owner go-ahead** — 定案前不動 SKILL.md。
+Status: **done（2026-07-18，PR #4）**。
 
 > 2026-07-18 連動：skill 將統包、攤平到 repo 根（見 `issue1-unify-skill.md`），
 > 本文的「Rule 5／Rule 8」指**現行**編號，重組後以內容落點為準——

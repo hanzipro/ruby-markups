@@ -1,6 +1,6 @@
 # Plan — Rule 6 rb/rtc 措詞改寫：「非標準」→「引擎支援未到位」
 
-Status: **awaiting owner go-ahead** — 定案前不動 SKILL.md。
+Status: **done（2026-07-18，PR #5）**。
 
 > 2026-07-18 連動：skill 將統包、攤平到 repo 根——SKILL.md 移至根目錄
 >（見 `issue1-unify-skill.md`）；「Rule 6」指現行編號，重組後本條屬

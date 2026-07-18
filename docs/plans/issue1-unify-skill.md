@@ -1,6 +1,6 @@
 # Plan — issue #1 → 統包一份 skill＋攤平到 repo 根
 
-Status: **direction 已由 owner 拍板（2026-07-18）** — 動手前仍待最終 go-ahead。
+Status: **done（2026-07-18，PR #6）**。
 
 ## 決策脈絡
 
