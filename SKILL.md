@@ -96,7 +96,7 @@ Until they do, this spec expresses the same structures in an **interop encoding*
 
 This is a rendering workaround, not a judgment on the tabular model — once engines implement it interoperably, `<rb>` / `<rtc>` forms may be adopted here directly.
 
-Existing `<rtc>` / `<rb>` markup can be converted by feeding it to an LLM with this skill loaded — the rules here are sufficient to emit the interop form. For programmatic conversion, [Han.css](https://css.hanzi.pro) ships an opt-in down-leveler `transpileRuby(src)` that handles forms A / B / C / E (tabular zhuyin, dual annotation with `rbspan`, anonymous-base multi-`<rt>`, and 3+ annotation layers) — call it once at build time or as a manual runtime compat shim.
+Existing `<rtc>` / `<rb>` markup can be converted by feeding it to an LLM with this skill loaded — the rules here are sufficient to emit the interop form. For programmatic conversion, [Han.css](https://hanzi.pro) ships an opt-in down-leveler `transpileRuby(src)` that handles forms A / B / C / E (tabular zhuyin, dual annotation with `rbspan`, anonymous-base multi-`<rt>`, and 3+ annotation layers) — call it once at build time or as a manual runtime compat shim.
 
 ### Rule 4 — Keep `<ruby>` children minimal (recommendation, not a hard rule)
 
