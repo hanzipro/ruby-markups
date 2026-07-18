@@ -227,14 +227,14 @@ Pinyin ruby runs **over the top**, not inter-character, so the zhuyin one-base r
 - Suggested type class: `jyutping`.
 - Universal rules 1–5 apply as-is. *Section to be expanded.*
 
-## Korean hanja readings（諺文）— skeleton
+## Korean hanja readings (諺文) — skeleton
 
 - Hangul reading annotation over hanja: `<ruby lang="ko">漢字<rt>한자</rt></ruby>`; per-word vs per-character grouping is an editorial convention — settle it via Rule 5 step 0.
 - Universal rules 1–5 apply as-is. *Section to be expanded.*
 
-## Topolect romanizations（方言）— skeleton
+## Topolect romanizations (方言) — skeleton
 
-- Hokkien 臺羅 / 白話字（POJ）, Hakka 客語拼音, and other topolect schemes. Which scheme annotates is a reading-standard decision — settle it via Rule 5 step 0.
+- Hokkien 臺羅 / 白話字 (POJ), Hakka 客語拼音, and other topolect schemes. Which scheme annotates is a reading-standard decision — settle it via Rule 5 step 0.
 - Suggested type class: name it after the scheme (e.g. `tailo`, `poj`).
 - Universal rules 1–5 apply as-is. *Section to be expanded.*
 
