@@ -15,8 +15,8 @@ are subtle, load-bearing, and rarely written down. This repo writes them down.
 - **Universal rules** — punctuation adjacency & kinsoku, nested multi-layer
   annotation, `rb`/`rtc` interop handling, reading-standard & polyphone
   confirmation. These bind any annotation language.
-- **Per-type sections** — Zhuyin (注音 / MPS) is the deepest, because its
-  inter-character (字旁直書) layout makes it the most constrained:
+- **Per-type sections** — Zhuyin (注音 / MPS) is the deepest, because it
+  alone can render inter-character（字間注）, making it the most constrained:
   one-base-per-ruby, tone-mark order, MOE reading default. Hanyu Pinyin,
   furigana (振り仮名), and Jyutping (粵拼) sections are skeletons that grow
   as needed.
