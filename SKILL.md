@@ -9,7 +9,7 @@ description: >-
 These rules describe how to author **CJK ruby annotation markup** (`<ruby>`) so that the browser's **native** ruby engine renders correct line-breaking, kinsoku (標點避頭尾), and annotation layout. They are organized in two tiers:
 
 - **Universal rules (Rules 1–5)** bind *every* annotation type — Zhuyin, Hanyu Pinyin, furigana, Jyutping, romanization, glosses.
-- **Per-type sections** bind only their own type. Zhuyin (注音 / MPS) — the one CJKV annotation type that can render inter-character（字間注）— is the most constrained type and gets the deepest section (Rules 6–8); other types are lighter and grow as needed.
+- **Per-type sections** bind only their own type. Zhuyin (注音 / MPS) — the one CJKV annotation type that can render inter-character (字間注) — is the most constrained type and gets the deepest section (Rules 6–8); other types are lighter and grow as needed.
 
 The rules apply to **all** hand-authored or AI-generated source: prose, demos, test fixtures, JSDoc snippets, playground HTML, anything.
 
@@ -141,9 +141,9 @@ Examples:
 
 ---
 
-## Zhuyin（注音 / MPS）
+## Zhuyin (注音 / MPS)
 
-Writing mode belongs to the **base text**; what varies for zhuyin is which space the annotation occupies. **Inter-character**（字間注）zhuyin takes room *inside the line*, standing beside each character within the intra-line spacing. **Interlinear**（行間注）annotation takes the space *between lines* — above the line in horizontal text, beside the vertical line in vertical text; so vertical zhuyin sitting next to its characters is interlinear, not inter-character. In **horizontal text**, zhuyin added to particular characters (or all of them) is mostly set inter-character; the interlinear setting is the minority but equally sanctioned by the official (MOE) conventions. In **vertical text**, zhuyin is interlinear — a vertical inter-character setting is essentially unseen (and makes little sense). Among CJKV annotation types, only zhuyin over horizontal text renders inter-character at all. Which setting renders is the author's CSS decision, not this spec's; the reference Zhuyin web font supports all of the above. Because inter-character must stay *possible*, zhuyin markup carries the strictest constraints — the rules below hold whichever layout the CSS picks. `<ruby class="zhuyin">` / `<ruby class="mps">` mark the type.
+Writing mode belongs to the **base text**; what varies for zhuyin is which space the annotation occupies. **Inter-character** (字間注) zhuyin takes room *inside the line*, standing beside each character within the intra-line spacing. **Interlinear** (行間注) annotation takes the space *between lines* — above the line in horizontal text, beside the vertical line in vertical text; so vertical zhuyin sitting next to its characters is interlinear, not inter-character. In **horizontal text**, zhuyin added to particular characters (or all of them) is mostly set inter-character; the interlinear setting is the minority but equally sanctioned by the official (MOE) conventions. In **vertical text**, zhuyin is interlinear — a vertical inter-character setting is essentially unseen (and makes little sense). Among CJKV annotation types, only zhuyin over horizontal text renders inter-character at all. Which setting renders is the author's CSS decision, not this spec's; the reference Zhuyin web font supports all of the above. Because inter-character must stay *possible*, zhuyin markup carries the strictest constraints — the rules below hold whichever layout the CSS picks. `<ruby class="zhuyin">` / `<ruby class="mps">` mark the type.
 
 ### Rule 6 — One base character per `<ruby class="zhuyin">` (recommended; required when CSS fallback is in play)
 
@@ -170,7 +170,7 @@ One base per `<ruby>` sidesteps all three.
 
 **When the rule can be relaxed**
 
-- **Pure vertical writing-mode**, where the zhuyin column sits naturally beside the column of CJK text（行間注）— no inter-character emulation needed.
+- **Pure vertical writing-mode**, where the zhuyin column sits naturally beside the column of CJK text (行間注) — no inter-character emulation needed.
 - **Safari-only** (or any future engine that natively supports `ruby-position: inter-character`).
 - Any environment where the author has verified the CSS fallback above is not in use.
 
@@ -186,16 +186,16 @@ Both `class="zhuyin"` and `class="mps"` are recognized and equally valid — pic
 
 Inside `<rt>`, the zhuyin string follows the standard Taiwanese textbook order:
 
-- 平/二/三/四聲（ˉ ˊ ˇ ˋ）at the **end** of the syllable: `ㄏㄢˋ`, `ㄗˋ`
-- 輕聲（˙）at the **start**: `˙ㄇㄚ`, `˙ㄋㄜ`
-- 方音 departing tones 陰去（˪）/ 陽去（˫）at the **end**, like the Mandarin tone marks
-- Dialectal entering-tone finals（ㆴ ㆵ ㆷ, and ㆻ for -k）at the end after any other syllabic content: `ㄏㄚㆷ`
+- 平/二/三/四聲 (ˉ ˊ ˇ ˋ) at the **end** of the syllable: `ㄏㄢˋ`, `ㄗˋ`
+- 輕聲 (˙) at the **start**: `˙ㄇㄚ`, `˙ㄋㄜ`
+- 方音 departing tones 陰去 (˪) / 陽去 (˫) at the **end**, like the Mandarin tone marks
+- Dialectal entering-tone finals (ㆴ ㆵ ㆷ, and ㆻ for -k) at the end after any other syllabic content: `ㄏㄚㆷ`
 
 Use the standard Unicode code points — U+02CA ˊ, U+02C7 ˇ, U+02CB ˋ, U+02D9 ˙; for 方音: U+02EA ˪, U+02EB ˫, U+31B4 ㆴ, U+31B5 ㆵ, U+31B7 ㆷ, U+31BB ㆻ — the set recommended by [Bopomofo on Web](https://github.com/cmex-30/Bopomofo_on_Web). Do not substitute combining marks at the source layer — a properly-built Zhuyin font's GSUB handles the spacing→combining swap for vertical / inter-character contexts.
 
-**Reading standard — author-led, with a default.** Which readings to use, and how tone sandhi is marked, are the author's decisions (settled up front via Rule 5 step 0). When the author specifies nothing, the default is **Taiwan MOE dictionary readings with citation-tone marking**（教育部《重編國語辭典修訂本》／《國語一字多音審訂表》）:
+**Reading standard — author-led, with a default.** Which readings to use, and how tone sandhi is marked, are the author's decisions (settled up front via Rule 5 step 0). When the author specifies nothing, the default is **Taiwan MOE dictionary readings with citation-tone marking** (教育部《重編國語辭典修訂本》／《國語一字多音審訂表》):
 
-- 一 and 不 are marked with their **citation tone**（本調）, never the sandhi form: 不亦說乎 → 不 is ㄅㄨˋ, not ㄅㄨˊ. (The MOE dictionary marks ㄅㄨˋ ㄧˋ ㄌㄜˋ ㄏㄨ even for the set idiom 不亦樂乎.)
+- 一 and 不 are marked with their **citation tone** (本調), never the sandhi form: 不亦說乎 → 不 is ㄅㄨˋ, not ㄅㄨˊ. (The MOE dictionary marks ㄅㄨˋ ㄧˋ ㄌㄜˋ ㄏㄨ even for the set idiom 不亦樂乎.)
 - Third-tone sandhi is likewise never marked — adjacent third tones both keep ˇ.
 - 陰平 (first tone) carries no tone mark; 輕聲 ˙ is prefixed as above.
 
@@ -203,9 +203,9 @@ Marking actual sandhi tones (e.g. for pronunciation-teaching material) is a legi
 
 ---
 
-## Hanyu Pinyin（拼音）— skeleton
+## Hanyu Pinyin (拼音) — skeleton
 
-Pinyin ruby is **interlinear**（行間注, over the top in horizontal text）, never inter-character, so the zhuyin one-base rule does not apply — group **per word**: a multi-character base with one `<rt>` is the normal form.
+Pinyin ruby is **interlinear** (行間注, over the top in horizontal text), never inter-character, so the zhuyin one-base rule does not apply — group **per word**: a multi-character base with one `<rt>` is the normal form.
 
 ```html
 <ruby class="pinyin">漢字<rt>hànzì</rt></ruby>
@@ -216,13 +216,13 @@ Pinyin ruby is **interlinear**（行間注, over the top in horizontal text）, 
 - As a second layer over zhuyin, use the nested form (Rule 2) — the outer `<rt>` carries the pinyin.
 - Universal rules 1–5 apply as-is. *Section to be expanded.*
 
-## Furigana（振り仮名）— skeleton
+## Furigana (振り仮名) — skeleton
 
 - Mono ruby (per character) vs group / jukugo ruby (per word) is an editorial convention — settle it via Rule 5 step 0; both are valid markup under this spec.
 - Annotation is kana; mark the content `lang="ja"`.
 - Universal rules 1–5 apply as-is — Japanese kinsoku depends on Rule 1 adjacency exactly as Chinese kinsoku does. *Section to be expanded.*
 
-## Cantonese Jyutping（粵拼）— skeleton
+## Cantonese Jyutping (粵拼) — skeleton
 
 - Per-character annotation with tone numbers: `<ruby class="jyutping">粵<rt>jyut6</rt></ruby>`.
 - Suggested type class: `jyutping`.
