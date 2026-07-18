@@ -144,16 +144,18 @@ Marking actual sandhi tones (e.g. for pronunciation-teaching material) is a legi
 
 ---
 
-## Rule 6 — `<rtc>` / `<rb>` are not used
+## Rule 6 — `<rtc>` / `<rb>`: not used, pending engine support
 
-The HTML Living Standard has marked `<rb>` and `<rtc>` as **obsolete / non-conforming**, and modern browsers' native ruby engines do not implement the tabular model reliably. The historical reason for `<rb>` / `<rtc>` was human readability — when zhuyin was hand-authored, the columnar form was easier to audit. With LLMs producing the markup, that rationale is gone.
+`<rb>` and `<rtc>` are **conforming markup**: the WHATWG HTML Standard had marked them obsolete, but the W3C [HTML Ruby Markup Extensions](https://www.w3.org/TR/html-ruby-extensions/) specification (Candidate Recommendation, 2026-06-04) revokes that status and deems both elements fully conforming, and their standardization continues to advance. What has *not* caught up is the engines: no browser yet renders the tabular model (`<rtc>` layers, `rbspan` spans) interoperably.
 
-Use the two replacement forms:
+Until they do, this spec expresses the same structures in an **interop encoding** built from what engines already render:
 
 - **single annotation** → flat `<ruby class="zhuyin">基<rt>注音</rt></ruby>`, one per CJK char (Rule 1)
-- **dual annotation** → nested `<ruby>` with the outer `<rt>` carrying pinyin / gloss (Rule 3)
+- **multi-layer / span annotation** → nested `<ruby>` with the outer `<rt>` carrying pinyin / gloss, spanning any number of inner bases (Rule 3)
 
-Hand-written legacy `<rtc>` / `<rb>` content can be migrated by feeding it to an LLM with this skill loaded — the rules here are sufficient to emit standards-compliant output. For programmatic conversion, [Han.css](https://css.hanzi.pro) ships an opt-in helper `convertLegacyZhuyinRuby(src)` that handles forms A / B / C / E (tabular zhuyin, dual annotation with `rbspan`, anonymous-base multi-`<rt>`, and 3+ annotation layers) — call it once at build time or as a manual runtime compat shim.
+This is a rendering workaround, not a judgment on the tabular model — once engines implement it interoperably, `<rb>` / `<rtc>` forms may be adopted here directly.
+
+Existing `<rtc>` / `<rb>` markup can be converted by feeding it to an LLM with this skill loaded — the rules here are sufficient to emit the interop form. For programmatic conversion, [Han.css](https://css.hanzi.pro) ships an opt-in down-leveler `transpileRuby(src)` that handles forms A / B / C / E (tabular zhuyin, dual annotation with `rbspan`, anonymous-base multi-`<rt>`, and 3+ annotation layers) — call it once at build time or as a manual runtime compat shim.
 
 ---
 
@@ -212,6 +214,6 @@ Before saving any file that touches Zhuyin ruby:
 4. Multi-char words are emitted as adjacent rubies, no separator.
 5. Dual-annotation cases use nested `<ruby>` with only the inner ones classed.
 6. Tone marks use canonical Unicode points and canonical position (end / start for 輕聲).
-7. No `<rtc>` / `<rb>`.
+7. No `<rtc>` / `<rb>` — conforming, but engines don't render them interoperably yet; express the same structure with nested `<ruby>` (Rule 6).
 8. Polyphone characters were flagged to the operator before emission, not silently resolved.
 9. The reading standard was settled up front (author-specified, or the Taiwan MOE citation-tone default) and every tone mark follows it — 一 / 不 in citation tone unless the author overrode.
